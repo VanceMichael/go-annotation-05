@@ -85,7 +85,7 @@ func (s *Scheduler) Run(ctx context.Context, tasks []Task) (Report, error) {
 		return rep, nil
 	}
 
-	runCtx, cancel := context.WithCancel(context.Background())
+	runCtx, cancel := context.WithCancel(ctx)
 	defer cancel()
 
 	queue := make(chan Task)
